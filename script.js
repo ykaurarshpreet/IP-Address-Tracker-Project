@@ -6,6 +6,22 @@ const mapDiv = document.getElementById('map');
 const searchBtn = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
 
+const map = L.map(mapDiv)
+
+
+searchBtn.addEventListener('click', async function(){
+    try{
+        const response = await fetch (`https://geo.ipify.org/api/v2/country,city?apiKey=at_eXFIkij3E8EOA8KMaghXnuXDiTaL3&ipAddress=${searchInput.value}`); 
+
+        const data = await response.json()
+       console.log(data);
+
+       updateUI(data);
+    } catch(error) {
+        console.error(error.message);
+    }
+});
+
 
 
 document.addEventListener('DOMContentLoaded', async function(){
@@ -24,16 +40,28 @@ document.addEventListener('DOMContentLoaded', async function(){
         //data = obj
         const data = await response.json()
         //updating ipaddress div with the data we got back from the api
-        ipAddress.textContent = `IP Address ${data.ip}`
+        updateUI(data);
+    } catch(error) {
+        console.error(error.message);
+    }
+
+});
+
+function updateUI(data){
+
+     ipAddress.textContent = `IP Address ${data.ip}`
         locationDiv.textContent = `Location ${data.location.city} ${data.location.region} ${data.location.postalCode}`
-        timezoneDiv.textContent = `Timezone UTC- ${data.location.timezoneDiv}`
+        timezoneDiv.textContent = `Timezone UTC- ${data.location.timezone}`
         isp.textContent = `ISP- ${data.isp}`
         console.log(data);
 
-    const map = L.map(mapDiv).setView(
+   map.setView(
       [data.location.lat, data.location.lng],
       13,
     );
+
+    const marker = L.marker([data.location.lat, data.location.lng]).addTo(map);
+   
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
@@ -41,18 +69,6 @@ document.addEventListener('DOMContentLoaded', async function(){
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
 
-    } catch(error) {
-        console.error(error.message);
-    }
+    marker.bindPopup("<b>Here you are!</b><br>Location!").openPopup();
 
-});
-
-// searchBtn.addEventListener('click', async function(){
-//     try{
-//         const response = await fetch ('https://geo.ipify.org/api/v2/country,city?apiKey=at_eXFIkij3E8EOA8KMaghXnuXDiTaL3&ipAddress=8.8.8.8'); 
-
-//     } catch(error) {
-//         console.error(error.message);
-//     }
-// });
-
+}

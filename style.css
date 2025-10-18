@@ -5,11 +5,48 @@
   
   body{
     display: flex;
+    flex-direction: column;
     height: 100vh;
   }
 
+  /* h1{
+   height: ;
+  } */
+
+  /* input{
+    display: flex;
+    flex: auto;
+  } */
+
+  /* #display{
+  display: flex;
+  
+  } */
+
+#header{
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 25px;
+    background-image: url(./images/pattern-bg-desktop.png);
+  /* display: flex;
+  flex: auto;
+  
+  height: 300px;
+  width: auto; */
+}
+
+  /* img{
+    width: 100%;
+    height:fit-content;
+   
+  } */
+
   #map { 
-    height: 180px;
+    height: 280px;
  }
 
   .attribution { 
