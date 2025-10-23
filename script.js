@@ -11,7 +11,7 @@ const map = L.map(mapDiv)
 
 searchBtn.addEventListener('click', async function(){
     try{
-        const response = await fetch (`https://geo.ipify.org/api/v2/country,city?apiKey=at_eXFIkij3E8EOA8KMaghXnuXDiTaL3&ipAddress=${searchInput.value}`); 
+        const response = await fetch (`https://geo.ipify.org/api/v2/country,city?apiKey=at_j3vyWp88clcBzGJjqqU2mwBiSvhx5&ipAddress=${searchInput.value}`); 
 
         const data = await response.json()
        console.log(data);
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function(){
         //we're requesting the api using the fetch function which inspects the url,
         //await keyword pauses the function and waits ffor the response from the api to 
         //come back to us to be used
-        const response = await fetch ('https://geo.ipify.org/api/v2/country,city?apiKey=at_eXFIkij3E8EOA8KMaghXnuXDiTaL3');
+        const response = await fetch ('https://geo.ipify.org/api/v2/country,city?apiKey=at_j3vyWp88clcBzGJjqqU2mwBiSvhx5');
             //ok property returns boolean true if we got a response and vice versa
             // if we dont get a response that is ok then we throw a new error
             //error class is a more advanced javascript way to show errors
@@ -50,7 +50,9 @@ document.addEventListener('DOMContentLoaded', async function(){
 function updateUI(data){
 
      ipAddress.textContent = `IP Address ${data.ip}`
-        locationDiv.textContent = `Location ${data.location.city} ${data.location.region} ${data.location.postalCode}`
+        locationDiv.textContent = `Location ${data.location.city} 
+        ${data.location.region} 
+        ${data.location.postalCode}`
         timezoneDiv.textContent = `Timezone UTC- ${data.location.timezone}`
         isp.textContent = `ISP- ${data.isp}`
         console.log(data);

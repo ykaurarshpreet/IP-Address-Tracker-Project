@@ -1,56 +1,101 @@
-  @font-face {
-    font-family:Rubik;
-    src: url(https://fonts.google.com/specimen/Rubik);
+h1{
+   font-family: 'Rubik';
+   font-size: x-large;
   }
+
   
   body{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    margin: auto;
   }
 
-  /* h1{
-   height: ;
-  } */
-
-  /* input{
-    display: flex;
-    flex: auto;
-  } */
-
-  /* #display{
-  display: flex;
+.vertical-line {
+            width: 1px;
+          
+            height: 50px;
+          
+            background-color: hsl(0, 0%, 93%);
+          
+            margin: 0 auto;
+          
+            transform: rotate(180deg);
+        }
   
-  } */
+
+  #search-input{
+    padding: 10px;
+    width: 400px;
+    border-top-left-radius: 11px;
+    border-bottom-left-radius: 11px;
+    border: 0;
+    font-family: 'Rubik';
+  }
+  
+  #search-button{
+  background-color: black;
+  display: flex;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 45px;
+  border: 0;
+}
+
+button img{
+  height: 11px;
+  padding: 10px;
+  align-self: center;
+}
+
+#search-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+  #display{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    font-size: small;
+    color: hsl(0, 0%, 58%);
+    font-weight: 700;
+    background-color: rgb(255, 255, 255);
+    margin: 40px;
+    border-radius: 15px;
+    font-family: 'Rubik';
+    width: 700px;
+  }
 
 #header{
     display: flex;
-    height: 300px;
-    justify-content: center;
+    flex-direction: column;
+    height: 200px;
+    width: auto;
+    /* justify-content: center; */
     align-items: center;
     margin-bottom: 20px;
-    color: white;
-    font-size: 25px;
+    color:white;
+    font-size: 18px;
     background-image: url(./images/pattern-bg-desktop.png);
-  /* display: flex;
-  flex: auto;
-  
-  height: 300px;
-  width: auto; */
+    
 }
 
-  /* img{
-    width: 100%;
-    height:fit-content;
-   
-  } */
+
+
+
+
+
+
 
   #map { 
-    height: 280px;
+    height: 100%;
+    
  }
 
   .attribution { 
-        font-size: 11px; text-align: center; 
+        font-size: 11px; text-align:center; 
         }
 
         .attribution a { 
